@@ -1,10 +1,21 @@
 {
   "name": "element-v-tooltip",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "private": false,
+  "author": {
+    "name": "daolanfler",
+    "email": "daolanfler@gmail.com"
+  },
   "description": "a Vue2 v-tooltip implement depends on element-ui",
   "main": "lib/element-v-tooltip.umd.min.js",
-  "keywords": ["v-tooltip", "element-ui"],
+  "keywords": [
+    "v-tooltip",
+    "element-ui"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daolanfler/element-v-tooltip.git"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
