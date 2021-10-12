@@ -15,6 +15,10 @@ yarn add element-v-tootip
 ```javascript
 // main.js
 import ElementVTooltip from "element-v-tooltip";
+
+// 如果项目中没有 element-ui 需要手动引入css 
+// import 'element-v-tooltip/lib/element-v-tooltip.css'
+
 Vue.use(ElementVTooltip);
 ```
 
