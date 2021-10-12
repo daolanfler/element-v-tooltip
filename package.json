@@ -1,11 +1,15 @@
 {
   "name": "element-v-tooltip",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "description": "a Vue2 v-tooltip implement depends on element-ui",
+  "main": "lib/element-v-tooltip.umd.min.js",
+  "keywords": ["v-tooltip", "element-ui"],
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "lib": "vue-cli-service build --target lib --name element-v-tooltip --dest lib packages/index.js"
   },
   "dependencies": {
     "core-js": "^3.6.5",
