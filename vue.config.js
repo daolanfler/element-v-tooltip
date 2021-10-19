@@ -1,6 +1,8 @@
 const path = require('path')
 
 module.exports = {
+  outputDir: './docs',
+  publicPath: './',
   pages: {
     index: {
       entry: "examples/main.js",
