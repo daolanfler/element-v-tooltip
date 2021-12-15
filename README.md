@@ -16,15 +16,15 @@ yarn add element-v-tootip
 // main.js
 import ElementVTooltip from "element-v-tooltip";
 
-// 如果项目中没有 element-ui 需要手动引入css 
-// import 'element-v-tooltip/lib/element-v-tooltip.css'
+// 如果项目中没有全局引入 element-ui 的样式，则需要手动引入css 
+import 'element-v-tooltip/lib/element-v-tooltip.css'
 
 Vue.use(ElementVTooltip);
 ```
 
 ## 使用方法
 
-```vue
+```html
 // component.vue
 <div v-tooltip.right="'苟利国家生死以'">Hover 出现 tooltip</div>
 
