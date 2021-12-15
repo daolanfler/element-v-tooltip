@@ -12,9 +12,9 @@ import fs from 'fs'
 const config = require('./package.json')
 
 const { name, version } = config
-const file = type => `dist/${name}.${type}.js`
+const getOutputFilename = type => `dist/${name}.${type}.js`
 
-export { name, file }
+export { name, getOutputFilename }
 
 export default defineConfig(
 
@@ -48,12 +48,20 @@ export default defineConfig(
         preventAssignment: true
       }),
     ],
-    output: {
-      exports: 'auto',
-      name,
-      file: file('umd'),
-      format: 'umd'
-    },
+    output: [
+      {
+        exports: 'named',
+        name,
+        file: getOutputFilename('umd'),
+        format: 'umd'
+      },
+      {
+        exports: 'named',
+        name,
+        file: getOutputFilename('esm'),
+        format: 'esm'
+      }
+    ],
     watch: {
       include: 'src/**'
     }

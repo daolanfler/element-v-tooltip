@@ -8,6 +8,7 @@
   },
   "description": "a Vue2 v-tooltip implement depends on element-ui",
   "main": "dist/element-v-tooltip.umd.js",
+  "module": "dist/element-v-tooltip.esm.js",
   "keywords": [
     "v-tooltip",
     "element-ui"
@@ -20,8 +21,8 @@
     "dev": "vue-cli-service serve",
     "docs": "vue-cli-service build --dest docs",
     "lint": "vue-cli-service lint",
-    "build": "vue-cli-service build --target lib --name element-v-tooltip --dest dist packages/index.js",
-    "build:umd": "rollup --config rollup.config.js"
+    "build:vue-cli": "vue-cli-service build --target lib --name element-v-tooltip --dest dist packages/index.js",
+    "build": "rollup --config rollup.config.js"
   },
   "dependencies": {
     "core-js": "^3.6.5",

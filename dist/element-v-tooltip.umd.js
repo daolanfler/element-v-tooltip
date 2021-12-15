@@ -1,8 +1,8 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('vue'), require('element-ui/lib/tooltip')) :
-  typeof define === 'function' && define.amd ? define(['vue', 'element-ui/lib/tooltip'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global["element-v-tooltip"] = factory(global.Vue, global.Tooltip));
-})(this, (function (Vue, Tooltip) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('vue'), require('element-ui/lib/tooltip')) :
+  typeof define === 'function' && define.amd ? define(['exports', 'vue', 'element-ui/lib/tooltip'], factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global["element-v-tooltip"] = {}, global.Vue, global.Tooltip));
+})(this, (function (exports, Vue, Tooltip) { 'use strict';
 
   function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -230,6 +230,8 @@
     ElementVTooltip: directive
   };
 
-  return index;
+  exports["default"] = index;
+
+  Object.defineProperty(exports, '__esModule', { value: true });
 
 }));
