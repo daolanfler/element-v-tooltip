@@ -1,6 +1,6 @@
 .DS_Store
 node_modules
-/dist
+# /dist
 
 
 # local env files
@@ -22,4 +22,4 @@ pnpm-debug.log*
 *.sln
 *.sw?
 
-lib/*.map
+dist/*.map
