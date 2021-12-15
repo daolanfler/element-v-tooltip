@@ -45,5 +45,5 @@ Vue.use(ElementVTooltip);
 ## Run Example
 
 ```bash
-yarn && yarn serve
+yarn && yarn dev
 ```
