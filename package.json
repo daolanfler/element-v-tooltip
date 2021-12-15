@@ -7,7 +7,7 @@
     "email": "daolanfler@gmail.com"
   },
   "description": "a Vue2 v-tooltip implement depends on element-ui",
-  "main": "dist/element-v-tooltip.umd.min.js",
+  "main": "dist/element-v-tooltip.umd.js",
   "keywords": [
     "v-tooltip",
     "element-ui"
@@ -20,7 +20,8 @@
     "dev": "vue-cli-service serve",
     "docs": "vue-cli-service build --dest docs",
     "lint": "vue-cli-service lint",
-    "build": "vue-cli-service build --target lib --name element-v-tooltip --dest dist packages/index.js"
+    "build": "vue-cli-service build --target lib --name element-v-tooltip --dest dist packages/index.js",
+    "build:umd": "rollup --config rollup.config.js"
   },
   "dependencies": {
     "core-js": "^3.6.5",
@@ -29,12 +30,21 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.15.8",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-node-resolve": "^13.1.1",
+    "@rollup/plugin-replace": "^3.0.0",
     "@vue/cli-plugin-babel": "~4.5.0",
     "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
     "babel-eslint": "^10.1.0",
+    "clean-css": "^5.2.2",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "rollup": "^2.61.1",
+    "rollup-plugin-css-only": "^3.1.0",
+    "rollup-plugin-uglify": "^6.0.4",
+    "rollup-plugin-vue": "^5.0.0",
     "vue-template-compiler": "^2.6.11"
   },
   "browserslist": [
