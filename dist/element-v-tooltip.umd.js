@@ -1,13 +1,27 @@
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('vue'), require('element-ui/lib/tooltip')) :
-  typeof define === 'function' && define.amd ? define(['exports', 'vue', 'element-ui/lib/tooltip'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global["element-v-tooltip"] = {}, global.Vue, global.Tooltip));
-})(this, (function (exports, Vue, Tooltip) { 'use strict';
+  typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('vue')) :
+  typeof define === 'function' && define.amd ? define(['exports', 'vue'], factory) :
+  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global["element-v-tooltip"] = {}, global.Vue));
+})(this, (function (exports, Vue) { 'use strict';
 
   function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
   var Vue__default = /*#__PURE__*/_interopDefaultLegacy(Vue);
-  var Tooltip__default = /*#__PURE__*/_interopDefaultLegacy(Tooltip);
+
+  function _defineProperty(obj, key, value) {
+    if (key in obj) {
+      Object.defineProperty(obj, key, {
+        value: value,
+        enumerable: true,
+        configurable: true,
+        writable: true
+      });
+    } else {
+      obj[key] = value;
+    }
+
+    return obj;
+  }
 
   function ownKeys(object, enumerableOnly) {
     var keys = Object.keys(object);
@@ -51,11 +65,11 @@
     "@babel/helpers - typeof";
 
     if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-      _typeof = function (obj) {
+      _typeof = function _typeof(obj) {
         return typeof obj;
       };
     } else {
-      _typeof = function (obj) {
+      _typeof = function _typeof(obj) {
         return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
       };
     }
@@ -63,23 +77,9 @@
     return _typeof(obj);
   }
 
-  function _defineProperty(obj, key, value) {
-    if (key in obj) {
-      Object.defineProperty(obj, key, {
-        value: value,
-        enumerable: true,
-        configurable: true,
-        writable: true
-      });
-    } else {
-      obj[key] = value;
-    }
-
-    return obj;
-  }
-
+  // import Tooltip from "element-ui/lib/tooltip";
+  // Elment Tooltip 指令简单的封装
   // overflowMode, 通过 .overflow 修饰符，只有当内容超过时才显示tooltip
-
   var positions = ["top", "top-start", "top-end", "right", "right-start", "right-end", "bottom", "bottom-start", "bottom-end", "left", "left-start", "left-end"];
 
   function getContent(value) {
@@ -128,7 +128,7 @@
       },
       render: function render() {
         var h = arguments[0];
-        return h(Tooltip__default["default"], {
+        return h("Tooltip", {
           "ref": "tooltip",
           "attrs": _objectSpread2(_objectSpread2({}, this.config), {}, {
             "content": this.content,

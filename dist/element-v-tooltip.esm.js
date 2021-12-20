@@ -1,5 +1,19 @@
 import Vue from 'vue';
-import Tooltip from 'element-ui/lib/tooltip';
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
 
 function ownKeys(object, enumerableOnly) {
   var keys = Object.keys(object);
@@ -43,11 +57,11 @@ function _typeof(obj) {
   "@babel/helpers - typeof";
 
   if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-    _typeof = function (obj) {
+    _typeof = function _typeof(obj) {
       return typeof obj;
     };
   } else {
-    _typeof = function (obj) {
+    _typeof = function _typeof(obj) {
       return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
     };
   }
@@ -55,23 +69,9 @@ function _typeof(obj) {
   return _typeof(obj);
 }
 
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-
+// import Tooltip from "element-ui/lib/tooltip";
+// Elment Tooltip 指令简单的封装
 // overflowMode, 通过 .overflow 修饰符，只有当内容超过时才显示tooltip
-
 var positions = ["top", "top-start", "top-end", "right", "right-start", "right-end", "bottom", "bottom-start", "bottom-end", "left", "left-start", "left-end"];
 
 function getContent(value) {
@@ -120,7 +120,7 @@ function createTooltip(el, value, modifiers) {
     },
     render: function render() {
       var h = arguments[0];
-      return h(Tooltip, {
+      return h("Tooltip", {
         "ref": "tooltip",
         "attrs": _objectSpread2(_objectSpread2({}, this.config), {}, {
           "content": this.content,

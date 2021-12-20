@@ -1,5 +1,6 @@
 import Vue from "vue";
-import Tooltip from "element-ui/lib/tooltip";
+import {Tooltip} from 'element-ui'
+// import Tooltip from "element-ui/lib/tooltip";
 
 // Elment Tooltip 指令简单的封装
 // overflowMode, 通过 .overflow 修饰符，只有当内容超过时才显示tooltip

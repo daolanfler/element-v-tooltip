@@ -20,7 +20,7 @@ export default defineConfig(
 
   {
     input: 'src/index.js',
-    external: ['element-ui/lib/tooltip', 'vue'],
+    external: ['vue'],
     plugins: [
       nodeResolve({
         mainFields: ['module', 'jsnext:main', 'main', 'browser'],
@@ -38,7 +38,7 @@ export default defineConfig(
       babel({
         exclude: 'node_modules/**',
         extensions: ['.js', '.jsx', '.es6', '.es', '.mjs', '.vue'],
-        babelHelpers: 'bundled'
+        babelHelpers: 'runtime'
         
       }),
       cjs(),
