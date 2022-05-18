@@ -21,13 +21,14 @@
     "dev": "vue-cli-service serve",
     "docs": "vue-cli-service build --dest docs",
     "lint": "vue-cli-service lint",
-    "build": "rollup --config rollup.config.js"
+    "build": "rollup --config rollup.config.js",
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
   },
   "dependencies": {
-        "core-js": "^3.6.5",
+    "core-js": "^3.6.5",
     "element-ui": "^2.15.6",
     "vue": "^2.6.11"
-
   },
   "peerDependencies": {
     "element-ui": "^2.15.6",
@@ -50,7 +51,8 @@
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-uglify": "^6.0.4",
     "rollup-plugin-vue": "^5.0.0",
-    "vue-template-compiler": "^2.6.11"
+    "vue-template-compiler": "^2.6.11",
+    "vuepress": "^1.9.7"
   },
   "browserslist": [
     "> 1%",
