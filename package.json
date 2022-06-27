@@ -1,6 +1,6 @@
 {
   "name": "element-v-tooltip",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "private": false,
   "description": "a Vue2 v-tooltip implement depends on element-ui",
   "author": {

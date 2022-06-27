@@ -10,81 +10,12 @@ function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'defau
 var Vue__default = /*#__PURE__*/_interopDefaultLegacy(Vue);
 var Tooltip__default = /*#__PURE__*/_interopDefaultLegacy(Tooltip);
 
-function ownKeys(object, enumerableOnly) {
-  var keys = Object.keys(object);
-
-  if (Object.getOwnPropertySymbols) {
-    var symbols = Object.getOwnPropertySymbols(object);
-
-    if (enumerableOnly) {
-      symbols = symbols.filter(function (sym) {
-        return Object.getOwnPropertyDescriptor(object, sym).enumerable;
-      });
-    }
-
-    keys.push.apply(keys, symbols);
-  }
-
-  return keys;
-}
-
-function _objectSpread2(target) {
-  for (var i = 1; i < arguments.length; i++) {
-    var source = arguments[i] != null ? arguments[i] : {};
-
-    if (i % 2) {
-      ownKeys(Object(source), true).forEach(function (key) {
-        _defineProperty(target, key, source[key]);
-      });
-    } else if (Object.getOwnPropertyDescriptors) {
-      Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));
-    } else {
-      ownKeys(Object(source)).forEach(function (key) {
-        Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));
-      });
-    }
-  }
-
-  return target;
-}
-
-function _typeof(obj) {
-  "@babel/helpers - typeof";
-
-  if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") {
-    _typeof = function (obj) {
-      return typeof obj;
-    };
-  } else {
-    _typeof = function (obj) {
-      return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
-    };
-  }
-
-  return _typeof(obj);
-}
-
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-
 // overflowMode, 通过 .overflow 修饰符，只有当内容超过时才显示tooltip
 
-var positions = ["top", "top-start", "top-end", "right", "right-start", "right-end", "bottom", "bottom-start", "bottom-end", "left", "left-start", "left-end"];
+const positions = ["top", "top-start", "top-end", "right", "right-start", "right-end", "bottom", "bottom-start", "bottom-end", "left", "left-start", "left-end"];
 
 function getContent(value) {
-  var type = _typeof(value);
+  const type = typeof value;
 
   if (type === "string") {
     return value;
@@ -100,10 +31,10 @@ function getContent(value) {
 }
 
 function getPlacement(value, modifiers) {
-  var placement = value.placement;
+  let placement = value.placement;
 
-  for (var i = 0; i < positions.length; i++) {
-    var pos = positions[i];
+  for (let i = 0; i < positions.length; i++) {
+    const pos = positions[i];
 
     if (modifiers[pos]) {
       placement = pos;
@@ -114,34 +45,38 @@ function getPlacement(value, modifiers) {
 }
 
 function createTooltip(el, value, modifiers) {
-  var content = getContent(value);
-  var placement = getPlacement(value, modifiers);
-  var instance = new Vue__default["default"]({
-    data: function data() {
+  const content = getContent(value);
+  const placement = getPlacement(value, modifiers);
+  const instance = new Vue__default["default"]({
+    data() {
       return {
         config: value,
-        content: content,
-        placement: placement
+        content,
+        placement
       };
     },
+
     methods: {
-      updateConifg: function updateConifg(content, placement, value) {
+      updateConifg(content, placement, value) {
         this.content = content;
         this.placement = placement;
         this.config = value;
       }
+
     },
-    render: function render(h) {
+
+    render(h) {
       return h(Tooltip__default["default"], {
         "ref": "tooltip",
-        "attrs": _objectSpread2(_objectSpread2({}, this.config), {}, {
+        "attrs": { ...this.config,
           "content": this.content,
           "placement": this.placement
-        })
+        }
       }, [this.config.contentRender ? h("template", {
         "slot": "content"
       }, [this.config.contentRender(h)]) : null]);
     }
+
   }).$mount();
   el._tooltip = instance.$refs.tooltip;
   el._tooltip.referenceElm = el;
@@ -150,8 +85,8 @@ function createTooltip(el, value, modifiers) {
 }
 
 function addListeners(el) {
-  el.addEventListener("mouseenter", function (event) {
-    var tooltip = el._tooltip;
+  el.addEventListener("mouseenter", event => {
+    let tooltip = el._tooltip;
 
     if (el._overflowMode && !isContentOverflow(el)) {
       return;
@@ -164,8 +99,8 @@ function addListeners(el) {
       tooltip.handleShowPopper();
     }
   });
-  el.addEventListener("mouseleave", function (event) {
-    var tooltip = el._tooltip;
+  el.addEventListener("mouseleave", event => {
+    let tooltip = el._tooltip;
 
     if (tooltip) {
       tooltip.setExpectedState(false);
@@ -177,19 +112,20 @@ function addListeners(el) {
 function isContentOverflow(el) {
   // use range width instead of scrollWidth to determine whether the text is overflowing
   // to address a potential FireFox bug: https://bugzilla.mozilla.org/show_bug.cgi?id=1074543#c3
-  var range = document.createRange();
+  const range = document.createRange();
   range.setStart(el, 0);
   range.setEnd(el, el.childNodes.length);
-  var rangeWidth = range.getBoundingClientRect().width;
-  var padding = (parseInt(getComputedStyle(el).paddingLeft, 10) || 0) + (parseInt(getComputedStyle(el).paddingRight, 10) || 0);
+  const rangeWidth = range.getBoundingClientRect().width;
+  const padding = (parseInt(getComputedStyle(el).paddingLeft, 10) || 0) + (parseInt(getComputedStyle(el).paddingRight, 10) || 0);
   return rangeWidth + padding > el.offsetWidth || el.scrollWidth > el.offsetWidth;
 }
 
-function bind(el, _ref) {
-  var value = _ref.value;
-      _ref.oldValue;
-      var modifiers = _ref.modifiers;
-  var content = getContent(value); // console.log(value, oldValue, modifiers);
+function bind(el, {
+  value,
+  oldValue,
+  modifiers
+}) {
+  const content = getContent(value); // console.log(value, oldValue, modifiers);
 
   if (content === false) {
     destroyTooltip(el);
@@ -207,12 +143,14 @@ function bind(el, _ref) {
   }
 }
 
-var directive = {
-  bind: bind,
+const directive = {
+  bind,
   update: bind,
-  unbind: function unbind(el) {
+
+  unbind(el) {
     destroyTooltip(el);
   }
+
 };
 
 function destroyTooltip(el) {
@@ -227,12 +165,12 @@ function destroyTooltip(el) {
   }
 }
 
-var install = function install(Vue) {
+const install = function (Vue) {
   Vue.directive('tooltip', directive);
 };
 
 var index = {
-  install: install,
+  install,
   ElementVTooltip: directive
 };
 
