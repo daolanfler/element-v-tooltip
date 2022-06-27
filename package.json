@@ -7,7 +7,7 @@
     "email": "daolanfler@gmail.com"
   },
   "description": "a Vue2 v-tooltip implement depends on element-ui",
-  "main": "dist/element-v-tooltip.umd.js",
+  "main": "dist/element-v-tooltip.common.js",
   "module": "dist/element-v-tooltip.esm.js",
   "keywords": [
     "v-tooltip",
@@ -24,10 +24,9 @@
     "build": "rollup --config rollup.config.js"
   },
   "dependencies": {
-        "core-js": "^3.6.5",
+    "core-js": "^3.6.5",
     "element-ui": "^2.15.6",
     "vue": "^2.6.11"
-
   },
   "peerDependencies": {
     "element-ui": "^2.15.6",
