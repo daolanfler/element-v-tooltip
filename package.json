@@ -16,8 +16,10 @@
   "main": "dist/element-v-tooltip.common.js",
   "module": "dist/element-v-tooltip.esm.js",
   "dependencies": {
+    "@highlightjs/vue-plugin": "1.0.2",
     "core-js": "^3.6.5",
     "element-ui": "^2.15.6",
+    "highlight.js": "^11.5.1",
     "vue": "^2.6.11"
   },
   "devDependencies": {
@@ -30,13 +32,16 @@
     "@vue/cli-plugin-babel": "~5.0.6",
     "@vue/cli-plugin-eslint": "~5.0.6",
     "@vue/cli-service": "~5.0.6",
+    "autoprefixer": "^10.4.7",
     "clean-css": "^5.2.2",
     "eslint": "^7.32.0",
     "eslint-plugin-vue": "^8.0.3",
+    "postcss": "^8.4.14",
     "rollup": "^2.61.1",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-uglify": "^6.0.4",
     "rollup-plugin-vue": "^5.0.0",
+    "tailwindcss": "^3.1.4",
     "vue-template-compiler": "^2.6.11"
   },
   "peerDependencies": {
