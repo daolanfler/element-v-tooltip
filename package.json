@@ -2,13 +2,52 @@
   "name": "element-v-tooltip",
   "version": "0.1.5",
   "private": false,
+  "description": "a Vue2 v-tooltip implement depends on element-ui",
   "author": {
     "name": "daolanfler",
     "email": "daolanfler@gmail.com"
   },
-  "description": "a Vue2 v-tooltip implement depends on element-ui",
+  "scripts": {
+    "build": "rollup --config rollup.config.js",
+    "lint": "vue-cli-service lint",
+    "build:docs": "vue-cli-service build --dest docs",
+    "dev": "vue-cli-service serve"
+  },
   "main": "dist/element-v-tooltip.common.js",
   "module": "dist/element-v-tooltip.esm.js",
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "element-ui": "^2.15.6",
+    "vue": "^2.6.11"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.16",
+    "@babel/eslint-parser": "^7.15.8",
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^21.0.1",
+    "@rollup/plugin-node-resolve": "^13.1.1",
+    "@rollup/plugin-replace": "^3.0.0",
+    "@vue/cli-plugin-babel": "~5.0.6",
+    "@vue/cli-plugin-eslint": "~5.0.6",
+    "@vue/cli-service": "~5.0.6",
+    "clean-css": "^5.2.2",
+    "eslint": "^7.32.0",
+    "eslint-plugin-vue": "^8.0.3",
+    "rollup": "^2.61.1",
+    "rollup-plugin-css-only": "^3.1.0",
+    "rollup-plugin-uglify": "^6.0.4",
+    "rollup-plugin-vue": "^5.0.0",
+    "vue-template-compiler": "^2.6.11"
+  },
+  "peerDependencies": {
+    "element-ui": "^2.15.6",
+    "vue": "^2.6.11"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
   "keywords": [
     "v-tooltip",
     "element-ui"
@@ -16,44 +55,5 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/daolanfler/element-v-tooltip.git"
-  },
-  "scripts": {
-    "dev": "vue-cli-service serve",
-    "lint": "vue-cli-service lint",
-    "build:docs": "vue-cli-service build --dest docs",
-    "build": "rollup --config rollup.config.js"
-  },
-  "dependencies": {
-    "core-js": "^3.6.5",
-    "element-ui": "^2.15.6",
-    "vue": "^2.6.11"
-  },
-  "peerDependencies": {
-    "element-ui": "^2.15.6",
-    "vue": "^2.6.11"
-  },
-  "devDependencies": {
-    "@babel/eslint-parser": "^7.15.8",
-    "@rollup/plugin-babel": "^5.3.0",
-    "@rollup/plugin-commonjs": "^21.0.1",
-    "@rollup/plugin-node-resolve": "^13.1.1",
-    "@rollup/plugin-replace": "^3.0.0",
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "babel-eslint": "^10.1.0",
-    "clean-css": "^5.2.2",
-    "eslint": "^6.7.2",
-    "eslint-plugin-vue": "^6.2.2",
-    "rollup": "^2.61.1",
-    "rollup-plugin-css-only": "^3.1.0",
-    "rollup-plugin-uglify": "^6.0.4",
-    "rollup-plugin-vue": "^5.0.0",
-    "vue-template-compiler": "^2.6.11"
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ]
+  }
 }
