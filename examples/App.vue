@@ -38,6 +38,16 @@
         />
       </div>
     </div>
+    <div>
+      <b>Example4: </b>
+      <div
+        :style="{ width: `${width1}px` }"
+        class="ellipsis"
+        v-tooltip="config4"
+      >
+        一段歌词
+      </div>
+    </div>
   </div>
 </template>
 
@@ -47,9 +57,15 @@ export default {
   components: {},
   data() {
     return {
-      width1: 100
+      width1: 100,
+      config4: {
+        contentRender(h) {
+          return <span>May you stay forever young!</span>;
+        },
+        placement: "bottom",
+      },
     };
-  }
+  },
 };
 </script>
 

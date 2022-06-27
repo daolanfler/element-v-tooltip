@@ -1,8 +1,8 @@
-const path = require('path')
+const path = require("path");
 
 module.exports = {
-  outputDir: './docs',
-  publicPath: './',
+  outputDir: "./docs",
+  publicPath: "./",
   pages: {
     index: {
       entry: "examples/main.js",
@@ -10,9 +10,11 @@ module.exports = {
       filename: "index.html",
     },
   },
+  /** @param {import("webpack-chain")} config */
   chainWebpack: (config) => {
     config.module
       .rule("js")
-      .include.add(path.resolve(__dirname, './src'))
+      .include.add(path.resolve(__dirname, "./src"))
+      .add(path.resolve(__dirname, "./examples"));
   },
 };
