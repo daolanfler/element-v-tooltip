@@ -3,7 +3,7 @@ import App from './App.vue'
 
 Vue.config.productionTip = false
 
-import ElementVTooltip from '../packages/index'
+import ElementVTooltip from '../src/index'
 
 Vue.use(ElementVTooltip)
 

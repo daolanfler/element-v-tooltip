@@ -16,7 +16,7 @@ const positions = [
   "bottom-end",
   "left",
   "left-start",
-  "left-end"
+  "left-end",
 ];
 
 function getContent(value) {
@@ -24,6 +24,9 @@ function getContent(value) {
   if (type === "string") {
     return value;
   } else if (value && type === "object") {
+    if (typeof value.contentRender === "function") {
+      return "";
+    }
     return value.content;
   } else {
     return false;
@@ -50,7 +53,7 @@ function createTooltip(el, value, modifiers) {
       return {
         config: value,
         content,
-        placement
+        placement,
       };
     },
     methods: {
@@ -58,18 +61,22 @@ function createTooltip(el, value, modifiers) {
         this.content = content;
         this.placement = placement;
         this.config = value;
-      }
+      },
     },
-    render() {
+    render(h) {
       return (
         <Tooltip
           ref="tooltip"
           {...{ attrs: this.config }}
           content={this.content}
           placement={this.placement}
-        />
+        >
+          {this.config.contentRender ? (
+            <template slot="content">{this.config.contentRender(h)}</template>
+          ) : null}
+        </Tooltip>
       );
-    }
+    },
   }).$mount();
   el._tooltip = instance.$refs.tooltip;
   el._tooltip.referenceElm = el;
@@ -78,7 +85,7 @@ function createTooltip(el, value, modifiers) {
 }
 
 function addListeners(el) {
-  el.addEventListener("mouseenter", event => {
+  el.addEventListener("mouseenter", (event) => {
     let tooltip = el._tooltip;
     if (el._overflowMode && !isContentOverflow(el)) {
       return;
@@ -90,11 +97,11 @@ function addListeners(el) {
       tooltip.handleShowPopper();
     }
   });
-  el.addEventListener("mouseleave", event => {
+  el.addEventListener("mouseleave", (event) => {
     let tooltip = el._tooltip;
     if (tooltip) {
       tooltip.setExpectedState(false);
-      tooltip.handleClosePopper();
+      tooltip.debounceClose();
     }
   });
 }
@@ -117,7 +124,7 @@ export function isContentOverflow(el) {
 function bind(el, { value, oldValue, modifiers }) {
   const content = getContent(value);
   // console.log(value, oldValue, modifiers);
-  if (!content) {
+  if (content === false) {
     destroyTooltip(el);
   } else {
     if (el._tooltip) {
@@ -141,7 +148,7 @@ export const directive = {
   update: bind,
   unbind(el) {
     destroyTooltip(el);
-  }
+  },
 };
 
 export default directive;

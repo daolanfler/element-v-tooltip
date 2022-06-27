@@ -13,6 +13,6 @@ module.exports = {
   chainWebpack: (config) => {
     config.module
       .rule("js")
-      .include.add(path.resolve(__dirname, './packages'))
+      .include.add(path.resolve(__dirname, './src'))
   },
 };

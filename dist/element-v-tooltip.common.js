@@ -89,6 +89,10 @@ function getContent(value) {
   if (type === "string") {
     return value;
   } else if (value && type === "object") {
+    if (typeof value.contentRender === "function") {
+      return "";
+    }
+
     return value.content;
   } else {
     return false;
@@ -127,15 +131,16 @@ function createTooltip(el, value, modifiers) {
         this.config = value;
       }
     },
-    render: function render() {
-      var h = arguments[0];
+    render: function render(h) {
       return h(Tooltip__default["default"], {
         "ref": "tooltip",
         "attrs": _objectSpread2(_objectSpread2({}, this.config), {}, {
           "content": this.content,
           "placement": this.placement
         })
-      });
+      }, [this.config.contentRender ? h("template", {
+        "slot": "content"
+      }, [this.config.contentRender(h)]) : null]);
     }
   }).$mount();
   el._tooltip = instance.$refs.tooltip;
@@ -164,7 +169,7 @@ function addListeners(el) {
 
     if (tooltip) {
       tooltip.setExpectedState(false);
-      tooltip.handleClosePopper();
+      tooltip.debounceClose();
     }
   });
 }
@@ -186,7 +191,7 @@ function bind(el, _ref) {
       var modifiers = _ref.modifiers;
   var content = getContent(value); // console.log(value, oldValue, modifiers);
 
-  if (!content) {
+  if (content === false) {
     destroyTooltip(el);
   } else {
     if (el._tooltip) {
