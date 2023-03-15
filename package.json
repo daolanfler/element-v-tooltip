@@ -1,6 +1,6 @@
 {
   "name": "element-v-tooltip",
-  "version": "0.1.6",
+  "version": "0.1.9",
   "private": false,
   "description": "a Vue2 v-tooltip implement depends on element-ui",
   "author": {
@@ -8,45 +8,48 @@
     "email": "daolanfler@gmail.com"
   },
   "scripts": {
-    "build": "rollup --config rollup.config.js",
+    "build": "rollup --config rollup.config.mjs",
     "lint": "vue-cli-service lint",
     "build:docs": "vue-cli-service build --dest docs",
     "dev": "vue-cli-service serve"
   },
   "main": "dist/element-v-tooltip.common.js",
   "module": "dist/element-v-tooltip.esm.js",
-  "dependencies": {
-    "@highlightjs/vue-plugin": "1.0.2",
-    "core-js": "^3.6.5",
-    "element-ui": "^2.15.6",
-    "highlight.js": "^11.5.1",
-    "vue": "^2.6.11"
-  },
   "devDependencies": {
-    "@babel/core": "^7.12.16",
-    "@babel/eslint-parser": "^7.15.8",
-    "@rollup/plugin-babel": "^5.3.0",
-    "@rollup/plugin-commonjs": "^21.0.1",
-    "@rollup/plugin-node-resolve": "^13.1.1",
-    "@rollup/plugin-replace": "^3.0.0",
-    "@vue/cli-plugin-babel": "~5.0.6",
-    "@vue/cli-plugin-eslint": "~5.0.6",
-    "@vue/cli-service": "~5.0.6",
-    "autoprefixer": "^10.4.7",
-    "clean-css": "^5.2.2",
-    "eslint": "^7.32.0",
+    "@babel/core": "^7.21.3",
+    "@babel/eslint-parser": "^7.21.3",
+    "@babel/plugin-syntax-import-assertions": "^7.20.0",
+    "@highlightjs/vue-plugin": "1.0.2",
+    "@rollup/plugin-babel": "^6.0.3",
+    "@rollup/plugin-commonjs": "^24.0.1",
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-replace": "^5.0.2",
+    "@vue/cli-plugin-babel": "^5.0.8",
+    "@vue/cli-plugin-eslint": "^5.0.8",
+    "@vue/cli-service": "^5.0.8",
+    "autoprefixer": "^10.4.14",
+    "clean-css": "^5.3.2",
+    "element-ui": "^2.15.6",
+    "core-js": "^3.29.1",
+    "eslint": "^8.36.0",
     "eslint-plugin-vue": "^8.0.3",
+    "highlight.js": "^11.5.1",
     "postcss": "^8.4.14",
-    "rollup": "^2.61.1",
-    "rollup-plugin-css-only": "^3.1.0",
-    "rollup-plugin-uglify": "^6.0.4",
+    "rollup": "^3.19.1",
+    "rollup-plugin-css-only": "^4.3.0",
     "rollup-plugin-vue": "^5.0.0",
-    "tailwindcss": "^3.1.4",
-    "vue-template-compiler": "^2.6.11"
+    "tailwindcss": "^3.2.7",
+    "vue": "^2.6.11",
+    "vue-template-compiler": "^2.6.14"
   },
+  "files": [
+    "dist",
+    "package.json",
+    "README.md"
+  ],
   "peerDependencies": {
     "element-ui": "^2.15.6",
-    "vue": "^2.6.11"
+    "vue": "^2.6.x"
   },
   "browserslist": [
     "> 1%",

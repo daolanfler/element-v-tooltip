@@ -6,10 +6,8 @@ import cjs from "@rollup/plugin-commonjs";
 import replace from "@rollup/plugin-replace";
 import css from "rollup-plugin-css-only";
 import CleanCSS from "clean-css";
-// import {uglify} from 'rollup-plugin-uglify'
 import fs from "fs";
-
-const config = require("./package.json");
+import config from "./package.json" assert { type: "json" };
 
 const { name, version } = config;
 const getOutputFilename = (type) => `dist/${name}.${type}.js`;
@@ -42,7 +40,6 @@ export default defineConfig({
       babelHelpers: "bundled",
     }),
     cjs(),
-    // uglify(),
     replace({
       VERSION: JSON.stringify(version),
       preventAssignment: true,

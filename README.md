@@ -7,7 +7,7 @@
 ## 安装
 
 ```bash
-yarn add element-v-tootip
+npm install element-v-tootip
 ```
 
 全局作为 plugin 安装
@@ -45,5 +45,5 @@ Vue.use(ElementVTooltip);
 ## Run Example
 
 ```bash
-yarn && yarn dev
+npm i && npm run dev
 ```
